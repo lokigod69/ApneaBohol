@@ -139,4 +139,33 @@ document.addEventListener('DOMContentLoaded', function() {
         window.addEventListener('scroll', checkIfInView);
         checkIfInView(); // Check on load
     }
+    
+    // Add scroll reveal animation for education feature sections
+    function isInViewport(element) {
+        const rect = element.getBoundingClientRect();
+        return (
+            rect.top <= (window.innerHeight || document.documentElement.clientHeight) * 0.8 &&
+            rect.bottom >= 0
+        );
+    }
+    
+    // Function to handle scroll animation
+    function handleScrollAnimation() {
+        const featureSections = document.querySelectorAll('.education-feature, .blog-feature');
+        
+        featureSections.forEach((section, index) => {
+            if (isInViewport(section)) {
+                // Add a slight delay based on index for cascading effect
+                setTimeout(() => {
+                    section.classList.add('visible');
+                }, index * 150);
+            }
+        });
+    }
+    
+    // Initial check on page load
+    handleScrollAnimation();
+    
+    // Check on scroll
+    window.addEventListener('scroll', handleScrollAnimation);
 });

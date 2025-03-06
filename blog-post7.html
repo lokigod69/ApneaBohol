@@ -21,6 +21,7 @@
             justify-content: center;
             text-align: center;
             color: var(--white);
+            margin-top: 70px; /* Add margin-top for separation from header */
             position: relative;
         }
         
@@ -120,18 +121,18 @@
             transform: translateY(-3px);
         }
         
-        .related-articles {
+        .related-posts {
             background-color: var(--light-color);
             padding: 4rem 0;
         }
         
-        .related-grid {
+        .related-posts-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 2rem;
         }
         
-        .related-card {
+        .blog-card {
             display: flex;
             flex-direction: column;
             aspect-ratio: 1 / 1;
@@ -142,28 +143,24 @@
             box-shadow: var(--box-shadow);
         }
         
-        .related-image {
+        .blog-card img {
             height: 200px;
             object-fit: cover;
         }
         
-        .related-content {
-            padding: 1rem;
-        }
-        
-        .related-date {
+        .blog-date {
             margin: 0.5rem 0;
             font-size: 0.9rem;
             color: var(--gray);
         }
         
-        .related-title {
+        .blog-card h3 {
             font-size: 1.2rem;
             line-height: 1.4;
             margin-bottom: 0.5rem;
         }
         
-        .related-excerpt {
+        .blog-card p {
             font-size: 0.9rem;
             line-height: 1.5;
             flex-grow: 1;
@@ -176,18 +173,18 @@
             overflow: hidden;
         }
         
-        .related-card .btn-text {
+        .blog-card .btn-text {
             margin: 1rem;
         }
         
         @media (max-width: 992px) {
-            .related-grid {
+            .related-posts-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
         }
         
         @media (max-width: 768px) {
-            .related-grid {
+            .related-posts-grid {
                 grid-template-columns: 1fr;
             }
         }
@@ -199,6 +196,11 @@
             <div class="nav-container">
                 <div class="logo">
                     <a href="index.html">Apnea Bohol</a>
+                </div>
+                <div class="mobile-menu-btn">
+                    <span></span>
+                    <span></span>
+                    <span></span>
                 </div>
                 <div class="nav-links">
                     <ul>
@@ -286,42 +288,30 @@
         </section>
 
         <!-- Related Posts -->
-        <section class="related-articles">
-            <div class="container">
+        <section class="related-posts">
+            <div class="related-posts-container">
                 <h2>Related Articles</h2>
-                <div class="related-grid">
-                    <div class="related-card">
-                        <div class="related-image">
-                            <img src="assets/blog1.jpg" alt="Oxygen Efficiency and Freediving">
-                        </div>
-                        <div class="related-content">
-                            <div class="related-date">Nov 20, 2024</div>
-                            <h3 class="related-title">Oxygen Efficiency and Freediving: Cellular Adaptations in Elite Breath-Hold Divers</h3>
-                            <p class="related-excerpt">Explore the fascinating physiological changes that occur in elite freedivers, particularly at the cellular level.</p>
-                            <a href="blog-post1.html" class="btn-text">Read More <i class="fas fa-chevron-right"></i></a>
-                        </div>
+                <div class="related-posts-grid">
+                    <div class="blog-card">
+                        <img src="assets/oxygen.jpg" alt="Oxygen Efficiency and Freediving">
+                        <div class="blog-date">Nov 20, 2024</div>
+                        <h3>Oxygen Efficiency and Freediving: Cellular Adaptations in Elite Breath-Hold Divers</h3>
+                        <p>Explore the fascinating physiological changes that occur in elite freedivers, particularly at the cellular level.</p>
+                        <a href="blog-post1.html" class="btn-text">Read More</a>
                     </div>
-                    <div class="related-card">
-                        <div class="related-image">
-                            <img src="assets/blog2.jpg" alt="Blog Post 2">
-                        </div>
-                        <div class="related-content">
-                            <div class="related-date">Nov 15, 2024</div>
-                            <h3 class="related-title">The Mammalian Dive Reflex: Your Body's Natural Freediving Response</h3>
-                            <p class="related-excerpt">Discover how your body automatically adapts to underwater conditions through this fascinating evolutionary mechanism.</p>
-                            <a href="blog-post2.html" class="btn-text">Read More <i class="fas fa-chevron-right"></i></a>
-                        </div>
+                    <div class="blog-card">
+                        <img src="assets/blog2.jpg" alt="Blog Post 2">
+                        <div class="blog-date">Nov 15, 2024</div>
+                        <h3>The Mammalian Dive Reflex: Your Body's Natural Freediving Response</h3>
+                        <p>Discover how your body automatically adapts to underwater conditions through this fascinating evolutionary mechanism.</p>
+                        <a href="blog-post2.html" class="btn-text">Read More</a>
                     </div>
-                    <div class="related-card">
-                        <div class="related-image">
-                            <img src="assets/blog3.jpg" alt="Blog Post 3">
-                        </div>
-                        <div class="related-content">
-                            <div class="related-date">Nov 10, 2024</div>
-                            <h3 class="related-title">Freediving Equalization Techniques: A Comprehensive Guide</h3>
-                            <p class="related-excerpt">Master the essential skill of equalizing ear pressure while freediving with these proven techniques and tips.</p>
-                            <a href="blog-post3.html" class="btn-text">Read More <i class="fas fa-chevron-right"></i></a>
-                        </div>
+                    <div class="blog-card">
+                        <img src="assets/blog3.jpg" alt="Blog Post 3">
+                        <div class="blog-date">Nov 10, 2024</div>
+                        <h3>Freediving Equalization Techniques: A Comprehensive Guide</h3>
+                        <p>Master the essential skill of equalizing ear pressure while freediving with these proven techniques and tips.</p>
+                        <a href="blog-post3.html" class="btn-text">Read More</a>
                     </div>
                 </div>
             </div>
@@ -349,6 +339,7 @@
                     <li><a href="wave1.html">Wave 1 (Beginner)</a></li>
                     <li><a href="wave2.html">Wave 2 (Advanced)</a></li>
                     <li><a href="education.html#discover">Discover Freediving</a></li>
+                    <li><a href="education.html#zero-to-hero">Zero to Hero Program</a></li>
                 </ul>
             </div>
             <div class="footer-column">
@@ -367,5 +358,6 @@
 
     <script src="js/main.js"></script>
     <script src="js/header.js"></script>
+    <script src="js/mobile-menu.js"></script>
 </body>
 </html>
