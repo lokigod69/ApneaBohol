@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog - Apnea Bohol</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Blog page specific styles */
+        .page-banner {
+            height: 60vh;
+            background-image: url('assets/education-header.jpg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--white);
+            margin-top: 4rem;
+            position: relative;
+        }
+        
+        .page-banner::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(30, 58, 143, 0.3);
+            z-index: 1;
+        }
+        
+        .banner-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            padding: 0 20px;
+        }
+        
+        .banner-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        .blog-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 5rem 20px;
+        }
+        
+        .blog-intro {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 4rem;
+        }
+        
+        .blog-intro p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+        
+        .blog-categories {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 3rem;
+        }
+        
+        .category-btn {
+            padding: 8px 16px;
+            background-color: var(--light-color);
+            border-radius: 30px;
+            font-size: 0.9rem;
+            transition: var(--transition);
+            cursor: pointer;
+        }
+        
+        .category-btn:hover, .category-btn.active {
+            background-color: var(--primary-color);
+            color: var(--white);
+        }
+        
+        .featured-post {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 5rem;
+            align-items: center;
+        }
+        
+        .featured-post-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 5px;
+            box-shadow: var(--box-shadow);
+        }
+        
+        .featured-post-content h2 {
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+        
+        .featured-post-meta {
+            display: flex;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+            font-size: 0.9rem;
+            color: var(--dark-color);
+        }
+        
+        .featured-post-meta span {
+            display: flex;
+            align-items: center;
+        }
+        
+        .featured-post-meta i {
+            margin-right: 5px;
+        }
+        
+        .featured-post-content p {
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+        
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2.5rem;
+        }
+        
+        .blog-card {
+            background-color: var(--white);
+            border-radius: 5px;
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+        }
+        
+        .blog-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .blog-card img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+        }
+        
+        .blog-card-content {
+            padding: 1.5rem;
+        }
+        
+        .blog-date {
+            font-size: 0.85rem;
+            color: var(--dark-color);
+            margin-bottom: 0.5rem;
+        }
+        
+        .blog-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            line-height: 1.4;
+        }
+        
+        .blog-card p {
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+        
+        @media (max-width: 992px) {
+            .featured-post {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .blog-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .banner-content h1 {
+                font-size: 2.5rem;
+            }
+            
+            .blog-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="main-nav">
+            <div class="nav-container">
+                <div class="logo">
+                    <a href="index.html">Apnea Bohol</a>
+                </div>
+                <div class="nav-links">
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="education.html">Education</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="blog.html" class="active">Blog</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Page Banner -->
+        <section class="page-banner">
+            <div class="banner-content">
+                <h1>Freediving Blog</h1>
+                <p>Insights, tips, and stories from the underwater world</p>
+            </div>
+        </section>
+
+        <!-- Blog Content -->
+        <section class="blog-container">
+            <div class="blog-intro">
+                <h2>Dive Deeper with Our Articles</h2>
+                <p>Welcome to the Apnea Bohol blog, where we share our passion for freediving through educational articles, personal stories, and the latest research. Whether you're a beginner or an experienced freediver, our content aims to inspire, educate, and connect the freediving community.</p>
+            </div>
+
+            <div class="blog-categories">
+                <div class="category-btn active">All</div>
+                <div class="category-btn">Techniques</div>
+                <div class="category-btn">Research</div>
+                <div class="category-btn">Destinations</div>
+                <div class="category-btn">Equipment</div>
+                <div class="category-btn">Stories</div>
+            </div>
+
+            <!-- Featured Post -->
+            <div class="featured-post">
+                <div class="featured-post-image">
+                    <img src="assets/blog1.jpg" alt="Featured Blog Post">
+                </div>
+                <div class="featured-post-content">
+                    <h2>Oxygen Efficiency and Freediving: Cellular Adaptations in Elite Breath-Hold Divers</h2>
+                    <div class="featured-post-meta">
+                        <span><i class="far fa-calendar"></i> November 20, 2024</span>
+                        <span><i class="far fa-user"></i> Dr. Maria Santos</span>
+                        <span><i class="far fa-folder"></i> Research</span>
+                    </div>
+                    <p>Freediving, the art of diving underwater on a single breath without the use of breathing apparatus, has fascinated scientists for decades. Elite freedivers can hold their breath for extraordinary periods???some exceeding 11 minutes???and reach depths beyond 100 meters. These feats raise intriguing questions about human physiology and adaptation.</p>
+                    <p>Recent research has begun to unravel the remarkable physiological changes that occur in elite freedivers, particularly at the cellular level. This article explores the fascinating adaptations that allow freedivers to push the boundaries of human capability.</p>
+                    <a href="blog-post1.html" class="btn-primary">Read Full Article</a>
+                </div>
+            </div>
+
+            <!-- Blog Grid -->
+            <div class="blog-grid">
+                <div class="blog-card">
+                    <img src="assets/blog2.jpg" alt="Blog Post 2">
+                    <div class="blog-card-content">
+                        <div class="blog-date">November 15, 2024</div>
+                        <h3>Evolutionary Origins of the Mammalian Dive Reflex</h3>
+                        <p>Discover how our ancient aquatic ancestry has shaped our ability to adapt to underwater environments.</p>
+                        <a href="blog-post2.html" class="btn-text">Read More</a>
+                    </div>
+                </div>
+                <div class="blog-card">
+                    <img src="assets/blog3.jpg" alt="Blog Post 3">
+                    <div class="blog-card-content">
+                        <div class="blog-date">November 10, 2024</div>
+                        <h3>Top 5 Freediving Destinations You Must Visit</h3>
+                        <p>Explore our curated list of the most breathtaking freediving locations around the world.</p>
+                        <a href="blog-post3.html" class="btn-text">Read More</a>
+                    </div>
+                </div>
+                <div class="blog-card">
+                    <img src="assets/blog1.jpg" alt="Blog Post 4">
+                    <div class="blog-card-content">
+                        <div class="blog-date">November 5, 2024</div>
+                        <h3>Common Challenges for Beginner Freedivers and How to Overcome Them</h3>
+                        <p>Every freediver faces challenges when starting out. Learn how to overcome the most common obstacles in your freediving journey.</p>
+                        <a href="blog-post4.html" class="btn-text">Read More</a>
+                    </div>
+                </div>
+                <div class="blog-card">
+                    <img src="assets/blog4.jpg" alt="Blog Post 5">
+                    <div class="blog-card-content">
+                        <div class="blog-date">October 30, 2024</div>
+                        <h3>Hypoxic Training for Freediving: Boosting Oxygen Capacity</h3>
+                        <p>Discover how controlled exposure to low-oxygen conditions can enhance your breath-hold capacity and freediving performance.</p>
+                        <a href="blog-post5.html" class="btn-text">Read More</a>
+                    </div>
+                </div>
+                <div class="blog-card">
+                    <img src="assets/blog6.jpg" alt="Beginner's Guide to Freediving">
+                    <div class="blog-card-content">
+                        <div class="blog-date">October 25, 2024</div>
+                        <h3>Exploring the Depths: A Beginner's Guide to Freediving</h3>
+                        <p>Discover the art of freediving, its health benefits, and essential tips for getting started safely.</p>
+                        <a href="blog-post6.html" class="btn-text">Read More</a>
+                    </div>
+                </div>
+                <div class="blog-card">
+                    <img src="assets/blog3.jpg" alt="Blog Post 7">
+                    <div class="blog-card-content">
+                        <div class="blog-date">October 20, 2024</div>
+                        <h3>The History of Freediving: From Ancient Practices to Modern Sport</h3>
+                        <p>Explore the rich history of freediving and how it evolved from a survival skill to a competitive sport.</p>
+                        <a href="blog-post7.html" class="btn-text">Read More</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">
+                <h2>Apnea Bohol</h2>
+                <p>Professional freediving education and experiences in the beautiful waters of Bohol, Philippines.</p>
+            </div>
+            <div class="footer-links">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="education.html">Education</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Courses</h3>
+                <ul>
+                    <li><a href="wave1.html">Wave 1 (Beginner)</a></li>
+                    <li><a href="wave2.html">Wave 2 (Advanced)</a></li>
+                    <li><a href="education.html#discover">Discover Freediving</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Connect</h3>
+                <div class="social-icons">
+                    <a href="https://www.facebook.com/Apneabohol/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/apnea_bohol/" target="_blank"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Apnea Bohol. All rights reserved.</p>
+        </div>
+    </footer>
+    <script src="js/main.js"></script>
+    <script src="js/header.js"></script>
+</body>
+</html>

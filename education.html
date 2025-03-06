@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Freediving Education - Apnea Bohol</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Additional styles for education page */
+        .page-header {
+            height: 60vh;
+            background-image: url('assets/education-header.jpg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--white);
+            margin-top: 4rem;
+        }
+        
+        .page-header h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+        }
+        
+        .page-header p {
+            font-size: 1.5rem;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+        }
+        
+        .intro-section {
+            padding: 5rem 0;
+            background-color: var(--white);
+        }
+        
+        .intro-content {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+        
+        .intro-content h2 {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+        }
+        
+        .intro-content p {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            color: var(--gray-dark);
+        }
+        
+        .course-section {
+            padding: 5rem 0;
+        }
+        
+        .course-section:nth-child(even) {
+            background-color: var(--light-color);
+        }
+        
+        .course-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+        
+        .course-section:nth-child(odd) .course-container {
+            direction: rtl;
+        }
+        
+        .course-section:nth-child(odd) .course-content,
+        .course-section:nth-child(odd) .course-image {
+            direction: ltr;
+        }
+        
+        .course-content h2 {
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+            font-size: 2.5rem;
+        }
+        
+        .course-content p {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+            color: var(--gray-dark);
+        }
+        
+        .course-subtitle {
+            font-size: 1.4rem;
+            color: var(--dark-color);
+            margin-bottom: 1.5rem;
+            font-weight: 500;
+        }
+        
+        .course-features {
+            margin: 2rem 0;
+        }
+        
+        .feature-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 1.2rem;
+            font-size: 1.1rem;
+        }
+        
+        .feature-icon {
+            color: var(--primary-color);
+            margin-right: 1rem;
+            font-size: 1.3rem;
+            flex-shrink: 0;
+        }
+        
+        .course-image img {
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .btn-primary {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 12px 25px;
+            border-radius: var(--border-radius);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: var(--transition);
+            margin-top: 1rem;
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-3px);
+        }
+        
+        /* Special styling for Discover Freediving and Zero to Hero sections */
+        #discover .course-image,
+        #zero-to-hero .course-image {
+            display: flex;
+            align-items: stretch;
+            height: 100%;
+        }
+        
+        #discover .course-image img,
+        #zero-to-hero .course-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+        }
+        
+        .cta-section {
+            background-color: var(--primary-color);
+            color: var(--white);
+            text-align: center;
+            padding: 5rem 0;
+        }
+        
+        .cta-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+        
+        .cta-buttons .btn-primary {
+            background-color: var(--white);
+            color: var(--primary-color);
+            border: 2px solid var(--white);
+            font-size: 1.1rem;
+            padding: 12px 30px;
+        }
+        
+        .cta-buttons .btn-primary:hover {
+            background-color: transparent;
+            color: var(--white);
+            transform: translateY(-3px);
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr 1fr 1fr;
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 1rem 2rem;
+        }
+        
+        @media (max-width: 768px) {
+            .course-container {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .course-section:nth-child(odd) .course-container {
+                direction: ltr;
+            }
+            
+            .course-content {
+                order: 2;
+            }
+            
+            .course-image {
+                order: 1;
+            }
+            
+            .course-content h2 {
+                font-size: 2rem;
+            }
+            
+            .course-subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .page-header h1 {
+                font-size: 2.5rem;
+            }
+            
+            .page-header p {
+                font-size: 1.2rem;
+            }
+            
+            .intro-content h2 {
+                font-size: 2rem;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .cta-buttons .btn-primary {
+                width: 100%;
+                text-align: center;
+                margin-bottom: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="main-nav">
+            <div class="nav-container">
+                <div class="logo">
+                    <a href="index.html">Apnea Bohol</a>
+                </div>
+                <div class="nav-links">
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="education.html" class="active">Education</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Page Header -->
+        <section class="page-header">
+            <div class="header-content">
+                <h1>Freediving Education</h1>
+                <p>Comprehensive freediving courses for all levels</p>
+            </div>
+        </section>
+
+        <!-- Intro Section -->
+        <section class="intro-section">
+            <div class="container">
+                <div class="intro-content text-center">
+                    <h2>Our Approach to Freediving Education</h2>
+                    <p>At Apnea Bohol, we believe that freediving is not just a sport, but a transformative practice that connects you with the ocean and yourself on a deeper level. Our comprehensive education programs are designed to build a strong foundation of skills, knowledge, and confidence in the water.</p>
+                    <p>All our courses are taught by experienced instructors who prioritize safety, proper technique, and enjoyment. Whether you're a complete beginner or looking to advance your skills, we have a course that's perfect for you.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Discover Freediving -->
+        <section class="course-section" id="discover">
+            <div class="course-container">
+                <div class="course-content">
+                    <h2>Discover Freediving</h2>
+                    <div class="course-subtitle">Your first step into the underwater world</div>
+                    <p>This introductory experience is perfect for those who are curious about freediving but not yet ready to commit to a full course. In just a few hours, you'll learn the basics of freediving and experience the sensation of holding your breath underwater in a safe, controlled environment.</p>
+                    
+                    <div class="course-features">
+                        <div class="feature-item">
+                            <div class="feature-icon"><i class="fas fa-check-circle"></i></div>
+                            <div>Introduction to freediving equipment and safety procedures</div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon"><i class="fas fa-check-circle"></i></div>
+                            <div>Basic breathing techniques for relaxation and breath-hold</div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon"><i class="fas fa-check-circle"></i></div>
+                            <div>Guided practice in shallow water with instructor supervision</div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon"><i class="fas fa-check-circle"></i></div>
+                            <div>Perfect for beginners with no prior experience</div>
+                        </div>
+                    </div>
+                    
+                    <div class="course-info">
+                        <div class="course-duration">
+                            <i class="far fa-clock"></i> Duration: Half Day
+                        </div>
+                        <div class="course-price">
+                            <i class="fas fa-tag"></i> Price: PHP 4,500
+                        </div>
+                    </div>
+                    
+                    <a href="discovery.html" class="btn-primary">Learn More</a>
+                </div>
+                <div class="course-image">
+                    <img src="assets/discover.jpg" alt="Discover Freediving">
+                </div>
+            </div>
+        </section>
+
+        <!-- Beginner Freediving -->
+        <section class="course-section">
+            <div class="course-container">
+                <div class="course-content">
+                    <h2>Beginner Freediving</h2>
+                    <div class="course-subtitle">Build a solid foundation for your freediving journey</div>
+                    <p>Our beginner course is designed to provide you with all the essential skills and knowledge needed to freedive safely and confidently. Over 2-3 days, you'll learn proper techniques for breathing, equalization, finning, and safety protocols that will serve as the foundation for your freediving journey.</p>
+                    
+                    <div class="course-features">
+                        <div class="feature-item">
+                            <div class="feature-icon"><i class="fas fa-check-circle"></i></div>
+                            <div>Comprehensive theory sessions on physiology, safety, and equipment</div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon"><i class="fas fa-check-circle"></i></div>
+                            <div>Breathing and relaxation techniques to increase breath-hold time</div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon"><i class="fas fa-check-circle"></i></div>
+                            <div>Proper equalization methods for depth diving</div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon"><i class="fas fa-check-circle"></i></div>
+                            <div>Confined water and open water sessions with progressive depth training</div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon"><i class="fas fa-check-circle"></i></div>
+                            <div>Buddy procedures and rescue techniques</div>
+                        </div>
+                    </div>
+                    
+                    <a href="wave1.html" class="btn-primary">Learn More</a>
+                </div>
+                <div class="course-image">
+                    <img src="assets/discover-freediving.jpg" alt="Beginner Freediving">
+                </div>
+            </div>
+        </section>
+
+        <!-- Advanced Freediving -->
+        <section class="course-section">
+            <div class="course-container">
+                <div class="course-content">
+                    <h2>Advanced Freediving</h2>
+                    <div class="course-subtitle">Refine your skills and increase your depth</div>
+                    <p>For freedivers who have mastered the basics and are ready to take their skills to the next level, our advanced course focuses on refining techniques, increasing depth, and improving overall performance. This 3-4 day course will challenge you to push your limits while maintaining proper form and safety awareness.</p>
+                    
+                    <div class="course-features">
+                        <div class="feature-item">
+                            <div class="feature-icon"><i class="fas fa-check-circle"></i></div>
+                            <div>Advanced breathing techniques and CO2/O2 tables for increased breath-hold</div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon"><i class="fas fa-check-circle"></i></div>
+                            <div>Frenzel and advanced equalization techniques for deeper dives</div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon"><i class="fas fa-check-circle"></i></div>
+                            <div>Efficient finning and streamlining for better performance</div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon"><i class="fas fa-check-circle"></i></div>
+                            <div>Mental training and visualization for relaxation and focus</div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon"><i class="fas fa-check-circle"></i></div>
+                            <div>Advanced safety and rescue procedures</div>
+                        </div>
+                    </div>
+                    
+                    <a href="wave2.html" class="btn-primary">Learn More</a>
+                </div>
+                <div class="course-image">
+                    <img src="assets/education-header.jpg" alt="Advanced Freediving">
+                </div>
+            </div>
+        </section>
+
+        <!-- Master Freediving -->
+        <section class="course-section" id="zero-to-hero">
+            <div class="course-container">
+                <div class="course-content">
+                    <h2>Zero to Hero</h2>
+                    <div class="course-subtitle">Achieve mastery and depth in your freediving practice</div>
+                    <p>Our master course is designed for experienced freedivers who want to achieve mastery in all aspects of freediving. This intensive 5-7 day program will help you refine your technique, increase your depth, and develop a deeper understanding of the physiological and psychological aspects of freediving.</p>
+                    
+                    <div class="course-features">
+                        <div class="feature-item">
+                            <div class="feature-icon"><i class="fas fa-check-circle"></i></div>
+                            <div>Personalized coaching to address individual challenges and goals</div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon"><i class="fas fa-check-circle"></i></div>
+                            <div>Advanced equalization techniques including mouth-fill for deep diving</div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon"><i class="fas fa-check-circle"></i></div>
+                            <div>Specialized training for different freediving disciplines (CWT, FIM, CNF)</div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon"><i class="fas fa-check-circle"></i></div>
+                            <div>Comprehensive understanding of freediving physiology and safety</div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon"><i class="fas fa-check-circle"></i></div>
+                            <div>Deep diving protocols and advanced safety procedures</div>
+                        </div>
+                    </div>
+                    
+                    <a href="master-freediving.html" class="btn-primary">Learn More</a>
+                </div>
+                <div class="course-image">
+                    <img src="assets/zerohero.jpg" alt="Zero to Hero Freediving">
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="cta-section">
+            <div class="cta-content">
+                <h2>Ready to Begin Your Freediving Journey?</h2>
+                <p>Whether you're a complete beginner or looking to advance your skills, we have the perfect course for you. Our experienced instructors will guide you every step of the way, ensuring a safe and enjoyable learning experience.</p>
+                <div class="cta-buttons">
+                    <a href="contact.html" class="btn-primary">Reserve Your Spot</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">
+                <h2>Apnea Bohol</h2>
+                <p>Professional freediving education and experiences in the beautiful waters of Bohol, Philippines.</p>
+            </div>
+            <div class="footer-column">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="education.html">Education</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Courses</h3>
+                <ul>
+                    <li><a href="wave1.html">Wave 1 (Beginner)</a></li>
+                    <li><a href="wave2.html">Wave 2 (Advanced)</a></li>
+                    <li><a href="#discover">Discover Freediving</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Connect</h3>
+                <ul>
+                    <li><a href="contact.html">Contact Us</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                </ul>
+                <div class="social-icons">
+                    <a href="https://www.facebook.com/Apneabohol/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/apnea_bohol/" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="https://wa.me/639776148350" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Apnea Bohol. All rights reserved.</p>
+            <div class="footer-legal">
+                <a href="privacy-policy.html">Privacy Policy</a>
+                <a href="terms-of-service.html">Terms of Service</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/header.js"></script>
+</body>
+</html>

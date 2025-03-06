@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yoga for Freediving - Apnea Bohol</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Additional styles for yoga page */
+        .page-header {
+            height: 60vh;
+            background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('assets/yogabanner.webp');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--white);
+            margin-top: 4rem;
+        }
+        
+        .yoga-section {
+            padding: 5rem 0;
+        }
+        
+        .yoga-section:nth-child(even) {
+            background-color: var(--light-color);
+        }
+        
+        .yoga-benefits {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .benefit-card {
+            background: linear-gradient(to bottom, var(--light-color), var(--white));
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+        
+        .benefit-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .benefit-card i {
+            font-size: 3rem;
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+        }
+        
+        .benefit-card h3 {
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+        
+        .yoga-types {
+            margin-top: 3rem;
+        }
+        
+        .yoga-type {
+            display: flex;
+            align-items: center;
+            margin-bottom: 2rem;
+            padding: 2rem;
+            background-color: var(--white);
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .yoga-type-icon {
+            flex: 0 0 80px;
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            text-align: center;
+        }
+        
+        .yoga-type-content {
+            flex: 1;
+            padding-left: 2rem;
+        }
+        
+        .yoga-type h3 {
+            margin-bottom: 0.5rem;
+            color: var(--primary-color);
+        }
+        
+        .booking-cta {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            padding: 3rem;
+            border-radius: 12px;
+            text-align: center;
+            margin: 5rem 0;
+            color: var(--white);
+            box-shadow: 0 10px 30px rgba(30, 58, 143, 0.3);
+        }
+        
+        .booking-cta h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--white);
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+        
+        .booking-cta p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .booking-cta .btn-booking {
+            background-color: var(--white);
+            color: var(--primary-color);
+            padding: 15px 30px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            border-radius: 50px;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            letter-spacing: 1px;
+        }
+        
+        .booking-cta .btn-booking:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+        }
+        
+        @media (max-width: 992px) {
+            .yoga-benefits {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .yoga-benefits {
+                grid-template-columns: 1fr;
+            }
+            
+            .yoga-type {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .yoga-type-content {
+                padding-left: 0;
+                padding-top: 1.5rem;
+            }
+            
+            .booking-cta {
+                padding: 2rem;
+            }
+            
+            .booking-cta h2 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="main-nav">
+            <div class="nav-container">
+                <div class="logo">
+                    <a href="index.html">Apnea Bohol</a>
+                </div>
+                <div class="mobile-menu-btn">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <div class="nav-links">
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="education.html">Education</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="yoga.html" class="active">Yoga</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Page Header -->
+        <section class="page-header">
+            <div class="header-content">
+                <h1>Yoga for Freediving</h1>
+                <p>Enhance your breath control, flexibility, and mental focus</p>
+            </div>
+        </section>
+
+        <!-- Introduction Section -->
+        <section class="yoga-section">
+            <div class="container">
+                <h2>Yoga & Freediving: A Perfect Harmony</h2>
+                <p>Yoga and freediving share a deep connection through breath awareness, mental focus, and body control. At Apnea Bohol, we integrate yoga practices into our freediving training to help you develop a stronger mind-body connection, improve your breath-holding capacity, and enhance your overall freediving experience.</p>
+                
+                <div class="yoga-benefits">
+                    <div class="benefit-card">
+                        <i class="fas fa-lungs"></i>
+                        <h3>Improved Breath Control</h3>
+                        <p>Yoga breathing techniques (pranayama) directly translate to better breath control underwater, increasing your breath-holding capacity and relaxation during dives.</p>
+                    </div>
+                    
+                    <div class="benefit-card">
+                        <i class="fas fa-brain"></i>
+                        <h3>Mental Focus</h3>
+                        <p>Meditation and mindfulness practices help you develop the mental clarity and focus needed for successful freediving, reducing anxiety and promoting calm.</p>
+                    </div>
+                    
+                    <div class="benefit-card">
+                        <i class="fas fa-child"></i>
+                        <h3>Enhanced Flexibility</h3>
+                        <p>Increased flexibility from yoga practice improves your streamlining in the water, reduces energy consumption, and helps prevent injuries.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Yoga Types Section -->
+        <section class="yoga-section">
+            <div class="container">
+                <h2>Yoga Practices for Freedivers</h2>
+                <p>We incorporate various yoga styles and techniques specifically beneficial for freediving performance:</p>
+                
+                <div class="yoga-types">
+                    <div class="yoga-type">
+                        <div class="yoga-type-icon">
+                            <i class="fas fa-wind"></i>
+                        </div>
+                        <div class="yoga-type-content">
+                            <h3>Pranayama (Breath Control)</h3>
+                            <p>Specific breathing exercises that increase lung capacity, improve breath control, and enhance oxygen efficiency. Techniques include Ujjayi (Ocean Breath), Kapalabhati (Skull Shining), and Nadi Shodhana (Alternate Nostril Breathing).</p>
+                        </div>
+                    </div>
+                    
+                    <div class="yoga-type">
+                        <div class="yoga-type-icon">
+                            <i class="fas fa-spa"></i>
+                        </div>
+                        <div class="yoga-type-content">
+                            <h3>Hatha Yoga</h3>
+                            <p>Physical postures (asanas) that improve flexibility, strength, and body awareness. Focus on chest-opening poses, spinal flexibility, and core strength to enhance your freediving performance.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="yoga-type">
+                        <div class="yoga-type-icon">
+                            <i class="fas fa-om"></i>
+                        </div>
+                        <div class="yoga-type-content">
+                            <h3>Meditation & Mindfulness</h3>
+                            <p>Practices to develop mental focus, emotional control, and present-moment awareness – crucial skills for managing the psychological aspects of freediving.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Booking CTA Section -->
+        <section class="container">
+            <div class="booking-cta">
+                <h2>Book Your Yoga Session Now</h2>
+                <p>Experience the transformative power of yoga for your freediving practice. Our specialized sessions are designed to enhance your underwater performance and deepen your connection with the ocean.</p>
+                <a href="https://yogarona.fit" target="_blank" class="btn-booking">Book Your Session <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </section>
+
+        <!-- Testimonials -->
+        <section class="yoga-section">
+            <div class="container">
+                <h2 style="text-align: center;">What Our Students Say</h2>
+                <div class="testimonial-slider">
+                    <div class="testimonial">
+                        <div class="testimonial-content">
+                            <p>"The yoga sessions at Apnea Bohol completely transformed my freediving. My breath-hold increased by over a minute, and I feel much more relaxed underwater."</p>
+                            <div class="testimonial-author">
+                                <img src="assets/testimonial1.jpg" alt="Testimonial Author">
+                                <div>
+                                    <h4>Maria S.</h4>
+                                    <p>Advanced Freediver</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">
+                <h2>Apnea Bohol</h2>
+                <p>Discover the freedom of breath</p>
+            </div>
+            <div class="footer-links">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="education.html">Education</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="yoga.html">Yoga</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Yoga & Breathing</h3>
+                <ul>
+                    <li><a href="breathing-techniques.html">Breathing Techniques</a></li>
+                    <li><a href="yoga-for-freediving.html">Yoga for Freediving</a></li>
+                    <li><a href="meditation.html">Meditation</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Locations</h3>
+                <ul>
+                    <li><a href="partner-resorts.html">Partner Resorts</a></li>
+                    <li><a href="freediving-spots.html">Best Freediving Spots</a></li>
+                    <li><a href="retreats.html">Retreats</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Connect</h3>
+                <ul>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                </ul>
+                <div class="social-icons">
+                    <a href="https://www.facebook.com/Apneabohol/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/apnea_bohol/" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="https://wa.me/639776148350" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Apnea Bohol. All rights reserved.</p>
+            <div class="footer-legal">
+                <a href="privacy-policy.html">Privacy Policy</a>
+                <a href="terms-of-service.html">Terms of Service</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/header.js"></script>
+</body>
+</html>

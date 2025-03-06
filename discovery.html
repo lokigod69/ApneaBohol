@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Discovery Freedive Program - Apnea Bohol</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        .page-header {
+            height: 60vh;
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--white);
+            margin-top: 4rem;
+            position: relative;
+        }
+        
+        .page-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(30, 58, 143, 0.4); /* Deep Ocean Blue with transparency */
+            z-index: 1;
+        }
+        
+        .program-title {
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 2.5rem;
+            text-align: center;
+            margin-bottom: 0;
+        }
+        
+        .program-title h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .program-title p {
+            font-size: 1.2rem;
+            margin-bottom: 0;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .full-width-image {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+            display: block;
+        }
+        
+        .header-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            padding: 2rem;
+            background-color: rgba(30, 58, 143, 0.6); /* Deep Ocean Blue with transparency */
+            border-radius: 10px;
+            padding: 2.5cm;
+        }
+        
+        .course-details {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 5rem 2rem;
+            background-color: var(--white);
+        }
+        
+        .course-section {
+            margin-bottom: 3rem;
+        }
+        
+        .course-section h1 {
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            text-align: center;
+            font-size: 2.8rem;
+        }
+        
+        .course-section h2 {
+            color: var(--secondary-color);
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            font-size: 1.8rem;
+            border-left: 4px solid var(--accent-color);
+            padding-left: 1rem;
+        }
+        
+        .course-section p {
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+            color: #444;
+        }
+        
+        .feature-list {
+            list-style-type: none;
+            padding-left: 0;
+            margin-bottom: 2rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1rem;
+        }
+        
+        .feature-list li {
+            position: relative;
+            padding-left: 2rem;
+            margin-bottom: 1rem;
+            line-height: 1.6;
+            transition: transform 0.3s ease;
+        }
+        
+        .feature-list li:hover {
+            transform: translateX(5px);
+        }
+        
+        .feature-list li:before {
+            content: "\f00c";
+            font-family: "Font Awesome 5 Free";
+            font-weight: 900;
+            position: absolute;
+            left: 0;
+            color: var(--primary-color);
+        }
+        
+        .highlight {
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+        
+        .cta-button {
+            display: block;
+            width: fit-content;
+            margin: 3rem auto 0;
+            padding: 1rem 2rem;
+            background-color: var(--primary-color);
+            color: var(--white);
+            border: none;
+            border-radius: var(--border-radius);
+            font-weight: 600;
+            text-align: center;
+            text-decoration: none;
+            transition: var(--transition);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .cta-button:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+        
+        @media (max-width: 768px) {
+            .course-details {
+                padding: 3rem 1.5rem;
+            }
+            
+            .page-header {
+                height: 40vh;
+            }
+            
+            .feature-list {
+                grid-template-columns: 1fr;
+            }
+            
+            .header-content h1 {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="main-nav">
+            <div class="nav-container">
+                <div class="logo">
+                    <a href="index.html">Apnea Bohol</a>
+                </div>
+                <div class="nav-links">
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="education.html" class="active">Education</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Page Header - Just the banner image with blue overlay -->
+        <section class="page-header" style="background-image: url('assets/discover.jpg');">
+        </section>
+        
+        <!-- Program Title Section -->
+        <div class="program-title">
+            <h1>Discovery Freedive Program</h1>
+            <p>Your first step into the underwater world</p>
+        </div>
+        
+        <!-- Full Width Image -->
+        <img src="assets/freediving.jpg" alt="Freediving Experience" class="full-width-image">
+
+        <section class="course-details">
+            <div class="course-section">
+                <h1>Discovery Freedive Program</h1>
+                <p>
+                    Dive into the world of freediving with our <strong>Discovery Freedive Program</strong> at Apnea Bohol! Designed for beginners, this half-day program offers a comprehensive introduction to the essentials of freediving, ensuring a safe and enjoyable experience in the water.
+                </p>
+
+                <h2>What You Will Learn</h2>
+                <ul class="feature-list">
+                    <li>Basics of Freediving</li>
+                    <li>Safety and Relaxation Techniques</li>
+                    <li>Breathing Exercises</li>
+                    <li>Equipment and Gears/Short Fins</li>
+                    <li>Dry Static Apnea</li>
+                    <li>Line Dive Training</li>
+                    <li>Basic Finning Techniques</li>
+                    <li>Proper Duckdiving</li>
+                </ul>
+
+                <h2>What's Included</h2>
+                <ul class="feature-list">
+                    <li>Theory Class & Pool Session</li>
+                    <li>Open Water Session</li>
+                    <li>Resort Fees</li>
+                    <li>Environmental Fee</li>
+                    <li>Coach Fee</li>
+                    <li>Photos and Videos to Capture Your Experience</li>
+                </ul>
+
+                <p><em class="highlight">*Note:</em> Gears are not included in the package, so please bring your own or arrange for rentals separately.</p>
+
+                <h2>Duration & Cost</h2>
+                <p>
+                    The Discovery Freedive Program lasts for <strong>half a day</strong>, giving you ample time to grasp the fundamentals and practice in both pool and open water settings. The total cost for this immersive experience is <strong>PHP 4,500</strong>.
+                </p>
+
+                <p>
+                    Join us at Apnea Bohol to discover the thrill of freediving in a safe, supportive environment. Book your spot today and take your first breath-hold dive into this incredible sport!
+                </p>
+                
+                <a href="about.html#contact" class="cta-button">Book Now!</a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">
+                <h2>Apnea Bohol</h2>
+                <p>Professional freediving education and experiences in the beautiful waters of Bohol, Philippines.</p>
+            </div>
+            <div class="footer-links">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="education.html">Education</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Courses</h3>
+                <ul>
+                    <li><a href="wave1.html">Wave 1 (Beginner)</a></li>
+                    <li><a href="wave2.html">Wave 2 (Advanced)</a></li>
+                    <li><a href="education.html#discover">Discover Freediving</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Connect</h3>
+                <div class="social-icons">
+                    <a href="https://www.facebook.com/Apneabohol/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/apnea_bohol/" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="https://wa.me/639776148350" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p> 2025 Apnea Bohol. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/header.js"></script>
+</body>
+</html>

@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Top 5 Freediving Destinations You Must Visit - Apnea Bohol</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Blog post specific styles */
+        .blog-header {
+            height: 60vh;
+            background-image: url('assets/blog3.jpg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--white);
+            position: relative;
+        }
+        
+        .blog-header::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(30, 58, 143, 0.3);
+            z-index: 1;
+        }
+        
+        .blog-header-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            padding: 0 20px;
+        }
+        
+        .blog-header h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        .blog-meta {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+        }
+        
+        .blog-meta span {
+            margin: 0 10px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .blog-meta i {
+            margin-right: 5px;
+        }
+        
+        .blog-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 4rem 20px;
+        }
+        
+        .blog-content p {
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+        
+        .blog-content h2 {
+            margin: 2.5rem 0 1.5rem;
+            color: var(--primary-color);
+        }
+        
+        .blog-content img {
+            max-width: 100%;
+            height: auto;
+            margin: 2rem 0;
+            border-radius: 5px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .blog-share {
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--light-border);
+        }
+        
+        .share-buttons {
+            display: flex;
+            gap: 15px;
+            margin-top: 1rem;
+        }
+        
+        .share-button {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: var(--primary-color);
+            color: var(--white);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .share-button:hover {
+            background-color: var(--accent-color);
+            transform: translateY(-3px);
+        }
+        
+        .related-posts {
+            background-color: var(--light-color);
+            padding: 4rem 0;
+        }
+        
+        .related-posts-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .related-posts h2 {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .related-posts-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+        
+        .related-posts-grid .blog-card {
+            display: flex;
+            flex-direction: column;
+            aspect-ratio: 1 / 1;
+            height: 100%;
+            overflow: hidden;
+            background-color: var(--white);
+            border-radius: 5px;
+            box-shadow: var(--box-shadow);
+        }
+        
+        .related-posts-grid .blog-card img {
+            height: 200px;
+            object-fit: cover;
+        }
+        
+        .related-posts-grid .blog-card .blog-date {
+            margin: 0.5rem 0;
+            padding: 0 1rem;
+        }
+        
+        .related-posts-grid .blog-card h3 {
+            font-size: 1.2rem;
+            line-height: 1.4;
+            margin-bottom: 0.5rem;
+            padding: 0 1rem;
+        }
+        
+        .related-posts-grid .blog-card p {
+            font-size: 0.9rem;
+            line-height: 1.5;
+            flex-grow: 1;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            padding: 0 1rem;
+        }
+        
+        .related-posts-grid .blog-card .btn-text {
+            margin: 1rem;
+        }
+        
+        @media (max-width: 992px) {
+            .related-posts-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .related-posts-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="main-nav">
+            <div class="nav-container">
+                <div class="logo">
+                    <a href="index.html">Apnea Bohol</a>
+                </div>
+                <div class="nav-links">
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="education.html">Education</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="blog.html" class="active">Blog</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="blog-header">
+        <div class="blog-header-content">
+            <h1>Top 5 Freediving Destinations You Must Visit</h1>
+            <div class="blog-meta">
+                <span><i class="far fa-calendar-alt"></i> November 10, 2024</span>
+                <span><i class="far fa-user"></i> Apnea Bohol Team</span>
+                <span><i class="far fa-folder"></i> Travel</span>
+            </div>
+        </div>
+    </div>
+
+    <main>
+        <section class="blog-content">
+            <p>For freedivers, the world is filled with breathtaking underwater landscapes waiting to be explored. From crystal-clear cenotes to vibrant coral reefs and mysterious blue holes, the perfect dive spot offers a combination of visibility, marine life, and unique underwater features. In this article, we'll take you on a journey to the five most spectacular freediving destinations around the globe that should be on every freediver's bucket list.</p>
+            
+            <h2>1. Dahab, Egypt - The Blue Hole</h2>
+            <p>Known as the "Mecca of Freediving," Dahab's Blue Hole is one of the most famous dive sites in the world. This submarine sinkhole descends to over 100 meters, with stunning visibility often exceeding 30 meters. The Blue Hole offers something for freedivers of all levels – beginners can enjoy the shallow coral gardens around the rim, while advanced divers can challenge themselves with deeper dives along the vertical walls.</p>
+            <p>What makes Dahab special is not just the diving but the laid-back atmosphere of the town itself. With numerous freediving schools, affordable accommodations, and year-round diving conditions, it's an ideal location for both training and relaxation.</p>
+            
+            <h2>2. Amed, Bali, Indonesia</h2>
+            <p>Bali's eastern coastline offers some of the most diverse freediving experiences in Southeast Asia. Amed features dramatic drop-offs, vibrant coral reefs, and the famous USS Liberty shipwreck in nearby Tulamben. The warm waters (averaging 27-29°C year-round) and excellent visibility make this an ideal destination for both beginners and experienced freedivers.</p>
+            <p>Beyond the underwater attractions, Amed's black sand beaches, stunning mountain backdrops, and authentic Balinese culture create a perfect balance of adventure and relaxation. The area has developed a strong freediving community with several dedicated schools offering courses and guided dives.</p>
+            
+            <h2>3. Tulum, Mexico - Cenotes</h2>
+            <p>The cenotes of Mexico's Yucatan Peninsula offer a completely different freediving experience. These natural sinkholes reveal a magical underwater world of crystal-clear freshwater, dramatic light beams, and ancient limestone formations. The most famous cenotes for freediving include Dos Ojos, Car Wash, and Gran Cenote, each with its own unique characteristics.</p>
+            <p>What makes the cenotes special is the incredible visibility (often exceeding 50 meters) and the otherworldly atmosphere created by sunlight filtering through the water. The constant water temperature (around 25°C) and absence of currents make them perfect for relaxed freediving sessions and photography.</p>
+            
+            <h2>4. Kona, Hawaii, USA</h2>
+            <p>The Big Island of Hawaii offers some of the most unique freediving opportunities in the world. Kona's claim to fame is the night dive with manta rays, where these gentle giants come to feed on plankton attracted by lights. During the day, freedivers can explore lava tubes, swim with pods of spinner dolphins, and dive along dramatic underwater cliffs.</p>
+            <p>What sets Kona apart is the diversity of marine life and underwater landscapes. The volcanic origin of the islands has created a playground of underwater arches, caves, and tunnels to explore. The water temperature stays comfortable year-round (24-27°C), and visibility regularly exceeds 30 meters.</p>
+            
+            <h2>5. Panglao Island, Bohol, Philippines</h2>
+            <p>Our home base of Panglao Island deserves its place among the world's top freediving destinations. The waters surrounding Bohol offer an incredible biodiversity, with over 1,400 species of marine life in the nearby Bohol Sea. Balicasag Island, just a short boat ride away, features stunning walls, vibrant coral gardens, and regular encounters with sea turtles and schooling jacks.</p>
+            <p>What makes Panglao special is the combination of accessibility, affordability, and world-class diving conditions. The island offers sites suitable for all levels, from shallow coral gardens perfect for beginners to deeper walls for advanced freedivers. With year-round warm waters (27-30°C) and a growing freediving community, Bohol has established itself as the premier freediving destination in the Philippines.</p>
+            
+            <h2>Planning Your Freediving Adventure</h2>
+            <p>When planning a trip to any of these destinations, consider the following tips:</p>
+            <ul>
+                <li>Research the best time to visit based on water conditions and visibility</li>
+                <li>Connect with local freediving schools for guided dives and safety support</li>
+                <li>Pack appropriate exposure protection (most tropical destinations require only a 3mm wetsuit)</li>
+                <li>Bring your own mask, snorkel, and fins if possible for optimal comfort</li>
+                <li>Consider taking a refresher course if you haven't been freediving recently</li>
+                <li>Always dive with a buddy and follow proper safety protocols</li>
+            </ul>
+            
+            <p>Whether you're drawn to the crystal-clear cenotes of Mexico, the vibrant reefs of Bali, or the blue depths of Dahab, these destinations offer unforgettable freediving experiences that will deepen your connection with the underwater world. The only question is: which one will you visit first?</p>
+            
+            <div class="blog-share">
+                <h3>Share This Article</h3>
+                <div class="share-buttons">
+                    <a href="#" class="share-button"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="share-button"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="share-button"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" class="share-button"><i class="fab fa-pinterest"></i></a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Related Posts -->
+        <section class="related-posts">
+            <div class="related-posts-container">
+                <h2>Related Articles</h2>
+                <div class="related-posts-grid">
+                    <div class="blog-card">
+                        <img src="assets/blog1.jpg" alt="Blog Post 1">
+                        <div class="blog-date">Nov 20, 2024</div>
+                        <h3>Oxygen Efficiency and Freediving: Cellular Adaptations in Elite Breath-Hold Divers</h3>
+                        <p>Explore the fascinating physiological changes that occur in elite freedivers, particularly at the cellular level.</p>
+                        <a href="blog-post1.html" class="btn-text">Read More</a>
+                    </div>
+                    <div class="blog-card">
+                        <img src="assets/blog2.jpg" alt="Blog Post 2">
+                        <div class="blog-date">Nov 15, 2024</div>
+                        <h3>The Mammalian Dive Reflex: Your Body's Natural Freediving Response</h3>
+                        <p>Discover how your body automatically adapts to underwater conditions through this fascinating evolutionary mechanism.</p>
+                        <a href="blog-post2.html" class="btn-text">Read More</a>
+                    </div>
+                    <div class="blog-card">
+                        <img src="assets/blog4.jpg" alt="Blog Post 5">
+                        <div class="blog-date">Oct 30, 2024</div>
+                        <h3>Hypoxic Training for Freediving: Boosting Oxygen Capacity</h3>
+                        <p>Discover how controlled exposure to low-oxygen conditions can enhance your breath-hold capacity and freediving performance.</p>
+                        <a href="blog-post5.html" class="btn-text">Read More</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">
+                <h2>Apnea Bohol</h2>
+                <p>Professional freediving education and experiences in the beautiful waters of Bohol, Philippines.</p>
+            </div>
+            <div class="footer-links">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="education.html">Education</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Courses</h3>
+                <ul>
+                    <li><a href="wave1.html">Wave 1 (Beginner)</a></li>
+                    <li><a href="wave2.html">Wave 2 (Advanced)</a></li>
+                    <li><a href="education.html#discover">Discover Freediving</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Connect</h3>
+                <div class="social-icons">
+                    <a href="https://www.facebook.com/Apneabohol/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/apnea_bohol/" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="https://wa.me/639776148350" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Apnea Bohol. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/header.js"></script>
+</body>
+</html>

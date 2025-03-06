@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Freediving Locations - Apnea Bohol</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Additional styles for locations page */
+        .page-header {
+            height: 60vh;
+            background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('assets/locationsbanner.jpg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--white);
+            margin-top: 4rem;
+        }
+        
+        .locations-section {
+            padding: 5rem 0;
+        }
+        
+        .locations-section:nth-child(even) {
+            background-color: var(--light-color);
+        }
+        
+        .location-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin-top: 3rem;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 0 1.5rem;
+        }
+        
+        .location-box {
+            background-color: var(--white);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .location-box:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+        
+        .location-images {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5px;
+            height: 250px;
+            overflow: hidden; /* Ensure images don't overflow their container */
+        }
+        
+        .location-images img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+        
+        .location-box:hover .location-images img {
+            transform: scale(1.05);
+        }
+        
+        .location-content {
+            padding: 2rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .location-content h2 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+        
+        .location-content p {
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+            color: var(--gray-dark);
+        }
+        
+        .location-content .btn-text {
+            margin-top: auto;
+            color: var(--primary-color);
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            transition: var(--transition);
+        }
+        
+        .location-content .btn-text i {
+            margin-left: 5px;
+            transition: var(--transition);
+        }
+        
+        .location-content .btn-text:hover {
+            color: var(--secondary-color);
+        }
+        
+        .location-content .btn-text:hover i {
+            transform: translateX(3px);
+        }
+        
+        @media (max-width: 992px) {
+            .location-container {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .location-images {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="main-nav">
+            <div class="nav-container">
+                <div class="logo">
+                    <a href="index.html">Apnea Bohol</a>
+                </div>
+                <div class="mobile-menu-btn">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <div class="nav-links">
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="education.html">Education</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="yoga.html">Yoga</a></li>
+                        <li><a href="locations.html" class="active">Locations</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Page Header -->
+        <section class="page-header">
+            <div class="header-content">
+                <h1>Explore Our Freediving Locations</h1>
+                <p>Discover the most breathtaking underwater experiences in Bohol</p>
+            </div>
+        </section>
+
+        <!-- Locations Section -->
+        <section class="locations-section">
+            <div class="container">
+                <h2 style="text-align: center; margin-bottom: 2rem;">Our Freediving Excursions</h2>
+                <div class="location-container">
+                    <div class="location-box">
+                        <div class="location-images">
+                            <img src="assets/balicasag.jpg" alt="Balicasag Island" style="height: 250px;">
+                            <img src="assets/balicasag1.jpg" alt="Balicasag Island Marine Life" style="height: 250px;">
+                        </div>
+                        <div class="location-content">
+                            <h2>Balicasag Island Adventure</h2>
+                            <p>Join us for an unforgettable day at Balicasag Island, a gem off Panglao's coast! Our tour kicks off with a serene boat ride at dawn, chasing playful dolphins as the sun rises. Once we dock, you'll snorkel in the marine sanctuary, swimming alongside majestic sea turtles and vibrant fish darting through colorful coral gardens.</p>
+                            <p>The crystal-clear waters make every moment feel like a dive into an aquarium. After, relax on the white-sand beach or explore the island's charm—it's the perfect intro to freediving with Apnea Bohol's Wave 1 spirit!</p>
+                            <div class="button-container">
+                                <a href="about.html#contact" class="btn-text">Book This Excursion <i class="fas fa-chevron-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="location-box">
+                        <div class="location-images sardines-images">
+                            <img src="assets/sardines.png" alt="Napaling Sardines" style="height: 250px; object-position: center;">
+                            <img src="assets/sardines1.jpg" alt="Sardine Run" style="height: 250px; object-position: center;">
+                        </div>
+                        <div class="location-content">
+                            <h2>Napaling Sardines Fundive</h2>
+                            <p>Dive into the magic of Napaling Reef, Panglao's crown jewel for freedivers! This fun dive takes you to a thriving 25-meter coral wall, where massive schools of sardines shimmer like silver clouds against the vivid reef.</p>
+                            <p>The crystal waters reveal a kaleidoscope of marine life—clownfish, jacks, and more—making every breath a thrill. Perfect for beginners, this excursion blends the joy of freediving with nature's spectacle, embodying the Wave 1 vibe of discovery and wonder. You'll leave mesmerized by the sardines' dance!</p>
+                            <div class="button-container">
+                                <a href="about.html#contact" class="btn-text">Book This Excursion <i class="fas fa-chevron-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="location-box">
+                        <div class="location-images">
+                            <img src="assets/location3-1.jpg" alt="Doljo Point">
+                            <img src="assets/location3-2.jpg" alt="Doljo Point Freediving">
+                        </div>
+                        <div class="location-content">
+                            <h2>Doljo Point</h2>
+                            <p>Experience the thrill of Doljo Point, a hidden treasure for freedivers! This exciting excursion takes you to a dramatic drop-off where the reef plunges into the deep blue. Perfect for those ready to push their limits, you'll descend alongside vibrant coral formations teeming with marine life.</p>
+                            <p>Look out for sea turtles, reef sharks, and schools of jackfish that often patrol these waters. With depths ranging from 5 to 30+ meters, Doljo offers challenges for every level while maintaining the safety and support that defines Apnea Bohol.</p>
+                            <div class="button-container">
+                                <a href="about.html#contact" class="btn-text">Book This Excursion <i class="fas fa-chevron-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="location-box">
+                        <div class="location-images">
+                            <img src="assets/location4-1.jpg" alt="Arco Point">
+                            <img src="assets/location4-2.jpg" alt="Arco Point Cave">
+                        </div>
+                        <div class="location-content">
+                            <h2>Arco Point</h2>
+                            <p>Discover the enchanting underwater world of Arco Point, a freediver's paradise! This special site features a magnificent natural arch formation and an underwater cave system that creates a magical play of light and shadow beneath the waves.</p>
+                            <p>With depths ranging from shallow reef flats to 20+ meter drop-offs, Arco Point offers something for every freediver. The biodiversity here is stunning—nudibranchs, frogfish, and even the occasional sea snake make appearances, rewarding those who dive with patience and awareness.</p>
+                            <div class="button-container">
+                                <a href="about.html#contact" class="btn-text">Book This Excursion <i class="fas fa-chevron-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">
+                <h2>Apnea Bohol</h2>
+                <p>Professional freediving education and experiences in the beautiful waters of Bohol, Philippines.</p>
+            </div>
+            <div class="footer-links">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="education.html">Education</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Courses</h3>
+                <ul>
+                    <li><a href="wave1.html">Wave 1 (Beginner)</a></li>
+                    <li><a href="wave2.html">Wave 2 (Advanced)</a></li>
+                    <li><a href="education.html#discover">Discover Freediving</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Connect</h3>
+                <div class="social-icons">
+                    <a href="https://www.facebook.com/Apneabohol/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/apnea_bohol/" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="https://wa.me/639776148350" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Apnea Bohol. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/header.js"></script>
+</body>
+</html>

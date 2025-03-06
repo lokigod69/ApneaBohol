@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wave 2 Advanced Freediving - Apnea Bohol</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Additional styles for course page */
+        .course-header {
+            height: 60vh;
+            background-image: url('assets/education-header.jpg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--white);
+            margin-top: 4rem;
+        }
+        
+        .video-section {
+            padding: 3rem 0;
+            background-color: var(--secondary-color);
+        }
+        
+        .video-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+            box-shadow: var(--box-shadow);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+        }
+        
+        .video-container iframe {
+            display: block;
+            width: 100%;
+            height: 600px;
+            border: none;
+        }
+        
+        .course-intro {
+            padding: 5rem 0;
+            background-color: var(--light-color);
+        }
+        
+        .course-description {
+            padding: 5rem 0;
+        }
+        
+        .course-requirements {
+            padding: 5rem 0;
+            background-color: var(--light-color);
+        }
+        
+        .requirements-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+        
+        .requirement-box {
+            background-color: var(--white);
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            padding: 2rem;
+        }
+        
+        .requirement-box h3 {
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+        
+        .requirement-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .requirement-list li {
+            margin-bottom: 1rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+        
+        .requirement-list li:before {
+            content: "•";
+            color: var(--accent-color);
+            font-size: 1.5rem;
+            position: absolute;
+            left: 0;
+            top: -0.3rem;
+        }
+        
+        .course-badges {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+        
+        .badge {
+            text-align: center;
+        }
+        
+        .badge img {
+            width: 300px;
+            height: auto;
+            object-fit: contain;
+            margin-bottom: 1rem;
+        }
+        
+        .badge h4 {
+            color: var(--primary-color);
+        }
+        
+        .wave-cta {
+            text-align: center;
+            margin-top: 3rem;
+        }
+        
+        .wave-cta h3 {
+            color: var(--primary-color);
+        }
+        
+        @media (max-width: 768px) {
+            .requirements-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .course-badges {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .video-container iframe {
+                height: 400px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .video-container iframe {
+                height: 300px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="main-nav">
+            <div class="nav-container">
+                <div class="logo">
+                    <a href="index.html">Apnea Bohol</a>
+                </div>
+                <div class="nav-links">
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="education.html" class="active">Education</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Course Header -->
+        <section class="course-header">
+            <div class="header-content">
+                <h1>Wave 2 Advanced Freediving</h1>
+                <p>Take your freediving skills to new depths</p>
+            </div>
+        </section>
+
+        <!-- YouTube Video Section -->
+        <section class="video-section">
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/loSpddt7k28" title="Wave 2 Advanced Freediving" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            </div>
+        </section>
+
+        <!-- Course Intro -->
+        <section class="course-intro">
+            <div class="container">
+                <div class="intro-content text-center">
+                    <h2>Extend Your Limits</h2>
+                    <p>As a Molchanovs Wave 2 Advanced Freediver you will extend your limits further in all disciplines (up to a depth of -30m), become more proficient in no fin techniques, and learn about the monofin technique which is fastest and most powerful way to navigate the underwater world. You will learn the history of freediving, how it all started, where, why and how we got where we are now. You will dive deeper into the physics of freediving, how it affects your body, learn about Dalton's law and Henry's law, and their relation to safe freediving. You will go into detail about depth and distance dives and understand the main differences and adaptations of our bodies. You will continue your breathing education and improve the Frenzel equalization maneuver with specialized drills, tips and guidance.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Course Description -->
+        <section class="course-description">
+            <div class="container">
+                <h2 class="text-center">Course Overview</h2>
+                <div class="description-content">
+                    <p>As you progress with your technique skillset and performance, you also work further on mental training introducing mindfulness techniques tailored to different contexts. You will also be introduced to injuries related to freediving in the middle ear, inner ear, sinuses, and lungs, learn how to prevent and treat them. Safety is also brought up to a new level with details on blackouts, decompression illness, learning how to avoid them, and mastering advanced rescue techniques.</p>
+                    
+                    <p>This course builds upon the foundation established in Wave 1, taking your freediving abilities to new depths both literally and figuratively. You'll develop a more nuanced understanding of the physiological adaptations that occur during deeper dives, and learn to harness these natural responses to enhance your performance safely.</p>
+                    
+                    <p>The Wave 2 course emphasizes technical proficiency across multiple disciplines, with special attention to no-fins techniques that challenge your body awareness and efficiency in the water. You'll also be introduced to monofin techniques, opening up new possibilities for speed and power in your dives.</p>
+                    
+                    <p>Mental training becomes more sophisticated at this level, with mindfulness practices specifically designed to help you manage the psychological aspects of deeper dives. These techniques not only enhance your freediving experience but can be valuable tools in everyday life as well.</p>
+                    
+                    <p>Safety remains paramount, with advanced rescue training ensuring you're prepared to handle emergency situations at greater depths. You'll develop the confidence and skills to dive safely to 30 meters, always with proper buddy procedures and risk management strategies in place.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Course Requirements -->
+        <section class="course-requirements">
+            <div class="container">
+                <h2 class="text-center">Course Requirements</h2>
+                
+                <div class="prerequisites">
+                    <h3>Prerequisites</h3>
+                    <ul class="requirement-list">
+                        <li>Lap 1/Wave 1 certificate for Lap 2</li>
+                        <li>Wave 1 certificate for Wave 2</li>
+                        <li>OR completed crossover evaluation</li>
+                    </ul>
+                </div>
+                
+                <div class="requirements-grid">
+                    <div class="requirement-box">
+                        <h3>Pool Requirements</h3>
+                        <ul class="requirement-list">
+                            <li>Static 2 min 30 sec</li>
+                            <li>DYNB (Dynamic Bifins) 50m</li>
+                            <li>DNF (Dynamic No Fins) 35m</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="requirement-box">
+                        <h3>Open Water Requirements</h3>
+                        <ul class="requirement-list">
+                            <li>CWTB (Constant Weight Bifins) & FIM (Free Immersion) 24-30m</li>
+                            <li>CNF (Constant Weight No Fins) 15m</li>
+                            <li>CWTB (Constant Weight Bifins) buddying 10-15m</li>
+                            <li>Rescue from 15m</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="course-badges">
+                    <div class="badge">
+                        <img src="assets/l2.webp" alt="Lap 2 & Wave 2 Certification Badge">
+                        <h4>Lap 2 & Wave 2 Certification</h4>
+                    </div>
+                </div>
+                
+                <div class="wave-cta">
+                    <h3>Master Your Freediving Skills</h3>
+                    <p>Take your freediving to professional levels with our advanced course</p>
+                    <a href="about.html#contact" class="btn-primary">Reserve Your Spot</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="cta-section">
+            <div class="cta-content">
+                <h2>Ready to Advance Your Freediving Skills?</h2>
+                <p>Join our Wave 2 Advanced Freediving course and take your abilities to new depths.</p>
+                <div class="cta-buttons">
+                    <a href="about.html" class="btn-secondary">Learn More About Us</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">
+                <h2>Apnea Bohol</h2>
+                <p>Professional freediving education and experiences in the beautiful waters of Bohol, Philippines.</p>
+            </div>
+            <div class="footer-links">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="education.html">Education</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Courses</h3>
+                <ul>
+                    <li><a href="wave1.html">Wave 1 (Beginner)</a></li>
+                    <li><a href="wave2.html">Wave 2 (Advanced)</a></li>
+                    <li><a href="education.html#discover">Discover Freediving</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Connect</h3>
+                <div class="social-icons">
+                    <a href="https://www.facebook.com/Apneabohol/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/apnea_bohol/" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="https://wa.me/639776148350" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Apnea Bohol. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/header.js"></script>
+</body>
+</html>
