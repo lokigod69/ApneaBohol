@@ -4,6 +4,15 @@ document.addEventListener('DOMContentLoaded', function() {
     const navLinks = document.querySelector('.nav-links');
     const body = document.querySelector('body');
     const mainNav = document.querySelector('.main-nav');
+    let menuOpen = false;
+    
+    // Create menu overlay if it doesn't exist
+    let menuOverlay = document.querySelector('.menu-overlay');
+    if (!menuOverlay) {
+        menuOverlay = document.createElement('div');
+        menuOverlay.classList.add('menu-overlay');
+        body.appendChild(menuOverlay);
+    }
 
     // Set active class on current page link
     const currentPage = window.location.pathname.split('/').pop() || 'index.html';
@@ -24,47 +33,63 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
+    // Function to toggle menu state
+    function toggleMenu(e) {
+        if (e) {
+            e.stopPropagation();
+        }
+        
+        menuOpen = !menuOpen;
+        mobileMenuBtn.classList.toggle('active', menuOpen);
+        navLinks.classList.toggle('active', menuOpen);
+        body.classList.toggle('menu-open', menuOpen);
+        menuOverlay.classList.toggle('active', menuOpen);
+        
+        // Announce menu state for accessibility
+        const announcement = document.createElement('div');
+        announcement.setAttribute('aria-live', 'polite');
+        announcement.classList.add('sr-only');
+        announcement.textContent = menuOpen ? 'Menu opened' : 'Menu closed';
+        document.body.appendChild(announcement);
+        
+        // Remove announcement after it's read by screen readers
+        setTimeout(() => {
+            if (document.body.contains(announcement)) {
+                document.body.removeChild(announcement);
+            }
+        }, 1000);
+    }
+
+    // Function to close menu
+    function closeMenu() {
+        if (menuOpen) {
+            menuOpen = false;
+            mobileMenuBtn.classList.remove('active');
+            navLinks.classList.remove('active');
+            body.classList.remove('menu-open');
+            menuOverlay.classList.remove('active');
+        }
+    }
+
     // Toggle menu when hamburger icon is clicked
     if (mobileMenuBtn) {
-        mobileMenuBtn.addEventListener('click', function(e) {
-            e.stopPropagation();
-            mobileMenuBtn.classList.toggle('active');
-            navLinks.classList.toggle('active');
-            body.classList.toggle('menu-open');
-            
-            // Announce menu state for accessibility
-            const isOpen = navLinks.classList.contains('active');
-            const announcement = document.createElement('div');
-            announcement.setAttribute('aria-live', 'polite');
-            announcement.classList.add('sr-only');
-            announcement.textContent = isOpen ? 'Menu opened' : 'Menu closed';
-            document.body.appendChild(announcement);
-            
-            // Remove announcement after it's read by screen readers
-            setTimeout(() => {
-                document.body.removeChild(announcement);
-            }, 1000);
-        });
+        // Remove any existing event listeners
+        mobileMenuBtn.removeEventListener('click', toggleMenu);
+        // Add new event listener
+        mobileMenuBtn.addEventListener('click', toggleMenu);
     }
 
     // Close menu when clicking on a link
     const navLinksItems = document.querySelectorAll('.nav-links a');
     navLinksItems.forEach(item => {
-        item.addEventListener('click', () => {
-            mobileMenuBtn.classList.remove('active');
-            navLinks.classList.remove('active');
-            body.classList.remove('menu-open');
-        });
+        // Remove any existing event listeners
+        item.removeEventListener('click', closeMenu);
+        // Add new event listener
+        item.addEventListener('click', closeMenu);
     });
 
-    // Close menu when clicking outside the menu
-    document.addEventListener('click', function(e) {
-        if (body.classList.contains('menu-open') && !navLinks.contains(e.target) && e.target !== mobileMenuBtn) {
-            mobileMenuBtn.classList.remove('active');
-            navLinks.classList.remove('active');
-            body.classList.remove('menu-open');
-        }
-    });
+    // Close menu when clicking on the overlay
+    menuOverlay.addEventListener('click', closeMenu);
 
     // Prevent clicks inside the menu from closing it
     navLinks.addEventListener('click', function(e) {
@@ -89,9 +114,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const swipeThreshold = 100;
         if (touchStartX - touchEndX > swipeThreshold) {
             // Swipe left - close menu
-            mobileMenuBtn.classList.remove('active');
-            navLinks.classList.remove('active');
-            body.classList.remove('menu-open');
+            closeMenu();
         }
     }
 
@@ -108,4 +131,11 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Initialize scroll state on page load
     handleScroll();
+    
+    // Handle window resize - close menu if window is resized to desktop view
+    window.addEventListener('resize', function() {
+        if (window.innerWidth > 992 && menuOpen) {
+            closeMenu();
+        }
+    });
 });
