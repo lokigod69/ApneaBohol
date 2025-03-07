@@ -62,51 +62,25 @@ document.addEventListener('DOMContentLoaded', function() {
             index = 0;
         }
         
-        // Remove active class from all slides
-        slides.forEach(slide => {
-            slide.classList.remove('active');
-        });
-        
-        // Add active class to current slide
+        // Update current slide
+        slides[currentSlide].classList.remove('active');
         slides[index].classList.add('active');
         currentSlide = index;
         
         // Reset transition state after animation completes
         setTimeout(() => {
             isTransitioning = false;
-        }, 600); // Match this with CSS transition time
+        }, 500);
     }
     
     // Show the previous slide
     function showPrevSlide() {
-        pauseAutoSlide();
         showSlide(currentSlide - 1);
-        // Restart auto-slide after user interaction
-        setTimeout(startAutoSlide, 2000);
     }
     
     // Show the next slide
     function showNextSlide() {
-        pauseAutoSlide();
         showSlide(currentSlide + 1);
-        // Restart auto-slide after user interaction
-        setTimeout(startAutoSlide, 2000);
-    }
-    
-    // Start auto-sliding
-    function startAutoSlide() {
-        // Clear any existing interval
-        pauseAutoSlide();
-        
-        // Set new interval
-        slideInterval = setInterval(() => {
-            showSlide(currentSlide + 1);
-        }, autoSlideDelay);
-    }
-    
-    // Pause auto-sliding
-    function pauseAutoSlide() {
-        clearInterval(slideInterval);
     }
     
     // Handle touch start
@@ -122,19 +96,59 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Handle swipe gesture
     function handleSwipe() {
-        const swipeThreshold = 50; // Minimum distance to be considered a swipe
+        const swipeThreshold = 50;
+        const swipeDistance = touchEndX - touchStartX;
         
-        if (touchEndX < touchStartX - swipeThreshold) {
-            // Swipe left, show next slide
-            showNextSlide();
-        } else if (touchEndX > touchStartX + swipeThreshold) {
+        if (swipeDistance > swipeThreshold) {
             // Swipe right, show previous slide
             showPrevSlide();
+        } else if (swipeDistance < -swipeThreshold) {
+            // Swipe left, show next slide
+            showNextSlide();
+        }
+    }
+    
+    // Start auto-sliding
+    function startAutoSlide() {
+        // Clear any existing interval
+        clearInterval(slideInterval);
+        
+        // Set new interval
+        slideInterval = setInterval(() => {
+            showNextSlide();
+        }, autoSlideDelay);
+    }
+    
+    // Pause auto-sliding
+    function pauseAutoSlide() {
+        clearInterval(slideInterval);
+    }
+    
+    // Check if we're on a mobile device
+    function isMobileDevice() {
+        return window.innerWidth <= 768;
+    }
+    
+    // Adjust slider for mobile devices
+    function adjustForMobile() {
+        if (isMobileDevice()) {
+            // Make sure all slides are visible on mobile
+            slides.forEach((slide, index) => {
+                if (index === currentSlide) {
+                    slide.classList.add('active');
+                } else {
+                    slide.classList.remove('active');
+                }
+            });
         }
     }
     
     // Initialize the slider
-    if (slides.length > 0) {
-        initSlider();
-    }
+    initSlider();
+    
+    // Adjust for mobile on resize
+    window.addEventListener('resize', adjustForMobile);
+    
+    // Initial mobile adjustment
+    adjustForMobile();
 });

@@ -1,0 +1,17 @@
+/* Mobile Menu Visibility Fix */
+.main-nav.scrolled .mobile-menu-btn.active span:nth-child(1),
+.main-nav.scrolled .mobile-menu-btn.active span:nth-child(3) {
+    background-color: var(--primary-color);
+}
+
+.main-nav.scrolled .nav-links {
+    background-color: var(--white);
+}
+
+.main-nav.scrolled .nav-links ul li a {
+    color: var(--primary-color);
+}
+
+.main-nav.scrolled .nav-links ul li a:hover {
+    color: var(--secondary-color);
+}
