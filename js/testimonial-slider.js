@@ -1,141 +1,140 @@
 document.addEventListener('DOMContentLoaded', function() {
-    const track = document.querySelector('.testimonial-track');
     const slides = document.querySelectorAll('.testimonial-slide');
-    const prevButton = document.querySelector('.testimonial-nav .prev');
-    const nextButton = document.querySelector('.testimonial-nav .next');
+    const prevBtn = document.querySelector('.prev-btn');
+    const nextBtn = document.querySelector('.next-btn');
+    const sliderContainer = document.querySelector('.testimonial-slider');
     
-    if (!track || !slides.length || !prevButton || !nextButton) return;
-    
-    let currentIndex = 0;
-    const slideWidth = 100; // 100% width
-    const slideCount = slides.length;
-    let isTransitioning = false;
-    let autoSlideInterval;
-    const isMobile = window.innerWidth < 768;
-    
-    // Initialize the track width
-    track.style.width = `${slideCount * 100}%`;
-    
-    // Set equal width for each slide
-    slides.forEach(slide => {
-        slide.style.width = `${100 / slideCount}%`;
-    });
-    
-    // Function to update the slider position with transition
-    function updateSliderPosition() {
-        if (isTransitioning) return;
-        
-        isTransitioning = true;
-        track.style.transition = 'transform 0.5s ease-in-out';
-        track.style.transform = `translateX(-${currentIndex * slideWidth}%)`;
-        
-        // Reset transition flag after animation completes
-        setTimeout(() => {
-            isTransitioning = false;
-        }, 500);
-    }
-    
-    // Event listener for the previous button
-    prevButton.addEventListener('click', function() {
-        if (isTransitioning) return;
-        currentIndex = (currentIndex - 1 + slideCount) % slideCount;
-        updateSliderPosition();
-    });
-    
-    // Event listener for the next button
-    nextButton.addEventListener('click', function() {
-        if (isTransitioning) return;
-        currentIndex = (currentIndex + 1) % slideCount;
-        updateSliderPosition();
-    });
-    
-    // Add touch swipe functionality for mobile devices
+    let currentSlide = 0;
+    let slideInterval;
     let touchStartX = 0;
     let touchEndX = 0;
+    const autoSlideDelay = 8000; // 8 seconds between auto-slides
+    let isTransitioning = false;
     
-    track.addEventListener('touchstart', function(e) {
-        pauseAutoSlide();
-        touchStartX = e.changedTouches[0].screenX;
-    }, { passive: true });
-    
-    track.addEventListener('touchend', function(e) {
-        touchEndX = e.changedTouches[0].screenX;
-        handleSwipe();
-        startAutoSlide();
-    }, { passive: true });
-    
-    function handleSwipe() {
-        if (isTransitioning) return;
+    // Preload all images to prevent layout shifts
+    function preloadImages() {
+        const imageUrls = Array.from(slides).map(slide => {
+            const img = slide.querySelector('img');
+            return img ? img.src : null;
+        }).filter(url => url !== null);
         
-        const swipeThreshold = 50; // Minimum distance required for a swipe
-        
-        if (touchEndX < touchStartX - swipeThreshold) {
-            // Swipe left - go to next slide
-            currentIndex = (currentIndex + 1) % slideCount;
-            updateSliderPosition();
-        } else if (touchEndX > touchStartX + swipeThreshold) {
-            // Swipe right - go to previous slide
-            currentIndex = (currentIndex - 1 + slideCount) % slideCount;
-            updateSliderPosition();
-        }
+        imageUrls.forEach(url => {
+            const img = new Image();
+            img.src = url;
+        });
     }
     
-    // Function to start auto-slide
-    function startAutoSlide() {
-        // Use a longer interval on mobile devices
-        const interval = isMobile ? 7000 : 5000;
+    // Initialize the slider
+    function initSlider() {
+        // Preload images first
+        preloadImages();
         
+        // Set the first slide as active
+        showSlide(0);
+        
+        // Start auto-sliding
+        startAutoSlide();
+        
+        // Add event listeners
+        prevBtn.addEventListener('click', showPrevSlide);
+        nextBtn.addEventListener('click', showNextSlide);
+        
+        // Touch events for mobile
+        sliderContainer.addEventListener('touchstart', handleTouchStart, { passive: true });
+        sliderContainer.addEventListener('touchend', handleTouchEnd, { passive: true });
+        
+        // Pause auto-slide on hover or touch
+        sliderContainer.addEventListener('mouseenter', pauseAutoSlide);
+        sliderContainer.addEventListener('mouseleave', startAutoSlide);
+        sliderContainer.addEventListener('touchstart', pauseAutoSlide, { passive: true });
+        sliderContainer.addEventListener('touchend', startAutoSlide, { passive: true });
+    }
+    
+    // Show a specific slide
+    function showSlide(index) {
+        if (isTransitioning) return;
+        isTransitioning = true;
+        
+        // Handle index bounds
+        if (index < 0) {
+            index = slides.length - 1;
+        } else if (index >= slides.length) {
+            index = 0;
+        }
+        
+        // Remove active class from all slides
+        slides.forEach(slide => {
+            slide.classList.remove('active');
+        });
+        
+        // Add active class to current slide
+        slides[index].classList.add('active');
+        currentSlide = index;
+        
+        // Reset transition state after animation completes
+        setTimeout(() => {
+            isTransitioning = false;
+        }, 600); // Match this with CSS transition time
+    }
+    
+    // Show the previous slide
+    function showPrevSlide() {
+        pauseAutoSlide();
+        showSlide(currentSlide - 1);
+        // Restart auto-slide after user interaction
+        setTimeout(startAutoSlide, 2000);
+    }
+    
+    // Show the next slide
+    function showNextSlide() {
+        pauseAutoSlide();
+        showSlide(currentSlide + 1);
+        // Restart auto-slide after user interaction
+        setTimeout(startAutoSlide, 2000);
+    }
+    
+    // Start auto-sliding
+    function startAutoSlide() {
         // Clear any existing interval
-        clearInterval(autoSlideInterval);
+        pauseAutoSlide();
         
         // Set new interval
-        autoSlideInterval = setInterval(function() {
-            if (!document.hidden && !isTransitioning) {
-                currentIndex = (currentIndex + 1) % slideCount;
-                updateSliderPosition();
-            }
-        }, interval);
+        slideInterval = setInterval(() => {
+            showSlide(currentSlide + 1);
+        }, autoSlideDelay);
     }
     
-    // Function to pause auto-slide
+    // Pause auto-sliding
     function pauseAutoSlide() {
-        clearInterval(autoSlideInterval);
+        clearInterval(slideInterval);
     }
     
-    // Pause auto-advance when user interacts with the slider
-    const sliderContainer = document.querySelector('.testimonial-container');
+    // Handle touch start
+    function handleTouchStart(e) {
+        touchStartX = e.changedTouches[0].screenX;
+    }
     
-    sliderContainer.addEventListener('mouseenter', function() {
-        pauseAutoSlide();
-    });
+    // Handle touch end
+    function handleTouchEnd(e) {
+        touchEndX = e.changedTouches[0].screenX;
+        handleSwipe();
+    }
     
-    sliderContainer.addEventListener('mouseleave', function() {
-        startAutoSlide();
-    });
-    
-    // Pause when page is not visible
-    document.addEventListener('visibilitychange', function() {
-        if (document.hidden) {
-            pauseAutoSlide();
-        } else {
-            startAutoSlide();
-        }
-    });
-    
-    // Handle window resize events
-    window.addEventListener('resize', function() {
-        const wasMobile = isMobile;
-        const newIsMobile = window.innerWidth < 768;
+    // Handle swipe gesture
+    function handleSwipe() {
+        const swipeThreshold = 50; // Minimum distance to be considered a swipe
         
-        // If mobile state changed, restart the auto-slide with appropriate timing
-        if (wasMobile !== newIsMobile) {
-            startAutoSlide();
+        if (touchEndX < touchStartX - swipeThreshold) {
+            // Swipe left, show next slide
+            showNextSlide();
+        } else if (touchEndX > touchStartX + swipeThreshold) {
+            // Swipe right, show previous slide
+            showPrevSlide();
         }
-    });
+    }
     
-    // Initial position
-    updateSliderPosition();
-    
-    // Start auto-slide
-    startAutoSlide();
+    // Initialize the slider
+    if (slides.length > 0) {
+        initSlider();
+    }
 });

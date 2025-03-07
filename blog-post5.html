@@ -68,27 +68,38 @@
         }
         .blog-header {
             height: 60vh;
-            background-image: url('assets/blog4.jpg'); /* Updated to use blog4 image */
             background-size: cover;
             background-position: center;
             display: flex;
             align-items: center;
             justify-content: center;
-            text-align: center;
             color: var(--white);
-            margin-top: 4rem;
+            text-align: center;
             position: relative;
+            overflow: hidden;
         }
-        .blog-header::after {
+        
+        .blog-header-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            z-index: -1;
+        }
+        
+        .blog-header-overlay::after {
             content: '';
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(30, 58, 143, 0.3);
-            z-index: 1;
+            background-color: rgba(0, 0, 0, 0.5);
         }
+        
         .blog-header-content {
             position: relative;
             z-index: 2;
@@ -298,6 +309,7 @@
     <main>
         <!-- Blog Header -->
         <section class="blog-header">
+            <div class="blog-header-overlay" style="background-image: url('assets/oxygentraining.jpg');"></div>
             <div class="blog-header-content">
                 <h1>Hypoxic Training for Freediving: Boosting Oxygen Capacity</h1>
                 <div class="blog-meta">
@@ -406,14 +418,14 @@
                         <a href="blog-post1.html" class="btn-text">Read More</a>
                     </div>
                     <div class="blog-card">
-                        <img src="assets/blog2.jpg" alt="Blog Post 2">
+                        <img src="assets/blog2.jpg" alt="The Mammalian Dive Reflex">
                         <div class="blog-date">Nov 15, 2024</div>
                         <h3>The Mammalian Dive Reflex: Your Body's Natural Freediving Response</h3>
                         <p>Discover how your body automatically adapts to underwater conditions through this fascinating evolutionary mechanism.</p>
                         <a href="blog-post2.html" class="btn-text">Read More</a>
                     </div>
                     <div class="blog-card">
-                        <img src="assets/blog1.jpg" alt="Blog Post 4">
+                        <img src="assets/blog1.jpg" alt="Common Challenges for Beginner Freedivers">
                         <div class="blog-date">Nov 5, 2024</div>
                         <h3>Common Challenges for Beginner Freedivers and How to Overcome Them</h3>
                         <p>Every freediver faces challenges when starting out. Learn how to overcome the most common obstacles in your freediving journey.</p>
